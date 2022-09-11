@@ -14,6 +14,11 @@ class ApplicationController < Sinatra::Base
     movies.to_json
   end
 
+  get "/movies/:title" do
+    movie = Movie.find(params[:title])
+    movie.to_json
+  end
+
   get "/last_movie" do
   last_movie = Movie.last
     last_movie.to_json
